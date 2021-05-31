@@ -5,8 +5,8 @@ import time
 import os
 
 #Define your Twilio credentials
-account_sid = 'AC6a83a2245b864deaaf8d022229cb282a'
-auth_token = '352d0438dde9b628110bc51aa53227d4'
+account_sid = 'Add SID'
+auth_token = 'Add TOKEN'
 
 client = Client(account_sid, auth_token)
 
@@ -28,19 +28,19 @@ reciever = rInfo[1]
 
 def warn_message():
     client.messages.create(
-    to='+639771506700',
-    from_='+15593435018',
+    to='change numbet to send',
+    from_='change to number from',
     body="Alert! Please check the trash cans to check if it's full.")
 #warn_message()
 
 def pushBulletAlert():
-    pb = Pushbullet("o.59mr6fXSTZCg4qBhJd9yzacxGrWJr1B9")
+    pb = Pushbullet("divice code")
     print(pb.devices)
     #print(reciever)
     dev = pb.get_device(reciever)
-    push = dev.push_note("Alert!!", "Please check the trash cans might be already full.")
+    push = dev.push_note("Alert!!", "Please check the trash cans  already full.")
     dev = pb.get_device("Vivo Vivo 1609")
-    push = dev.push_note("Alert!!", "Please check the trash cans might be already full.")
+    push = dev.push_note("Alert!!", "Please check the trash cans  already full.")
     time.sleep(1)
 
 pushBulletAlert()
