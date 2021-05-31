@@ -1,0 +1,1 @@
+The my_model2.h5 is removed

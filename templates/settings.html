@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style type="text/css">
+.button input[type="submit"]{
+    width: 60%;
+    margin: 5px 20%;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #ff9800;
+    font-size: 18px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    cursor:pointer;
+    box-shadow: 1px 1px 2px #333333;
+}
+.button input[type="submit"]:hover{
+	background: #fabb46;
+	color: #000;
+}
+.button input[type="submit"]:disabled{
+	background: #fabb46;
+	color: #000;
+}
+.msg_run_stop{
+    width: 80%;
+    font-weight: bold;
+    margin: auto;
+    padding: 3%;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow:  1px 1px 2px #555555;
+}
+#rpb_stop{
+    color: #cc0000;
+    width: 90%;
+    margin: auto;	
+}
+#rpb_run{
+    color: #009900;
+    width: 80%;
+    margin: auto;	
+}
+.warn{
+    color: #ff9933;
+    text-align: center;
+    margin: auto;
+    padding:3%;
+    width: 75%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.editbtn{
+	float: right;
+	text-decoration: none;
+	background-color: #ff9933;
+	color: #FFF;
+	box-shadow: 1px 1px 2px #555555;
+	padding: 1%;
+	border-radius: 5%;
+}
+.info a:hover{
+	color: #000;
+	background-color: #fabb46;
+}
+</style>
+
+<script type="text/javascript">
+</script>
+<h2>Settings</h2>
+    <div id="parag">
+	<p><b>Hello {{ userN }}</b>, kindly read the following notes before you proceed.</p>
+	<p>NOTE: Upon editing the settings, make sure that the inputs are all correct.</p>
+	<p>Before editing the settings STOP the RPB from running.</p>
+	<p>After done editing the information make sure to RUN the RPB.</p>
+	<p>If all set, make sure to LOGOUT.</p>
+    </div><br>
+    <div class="button">
+	<div class="msg_run_stop">
+		{% if msg=='stop' %}
+	    <p id = "rpb_stop">Raspberry Pi Bin is Idle...</p>
+		{% else %}
+	    <p id = "rpb_run">Raspberry Pi Bin is Running...</p>
+		{% endif %}		    
+	</div><br>
+	<form action="" method="post" class="btns_class">
+	    <input type="submit" name="button1" value="Run RPB" {{ run }}/>  
+	    <input type="submit" name="button2" value="Stop RPB" {{ stop }}/>
+	    <br><br><p class="warn">Below Buttons are Strictly for Debugging the System</p><br>
+	    <input type="submit" name="button3" value="Reboot RPB" /> 
+	    <input type="submit" name="button4" value="Shutdown RPB" />
+	    <h5 style="text-align:center"><i id="note" >Manually Turn On the RBP if you click shutdown button</i></h5>
+	</form>
+    </div><br>
+    <div id="parag" class="info">
+	<a href="{{ url_for('alertEdit') }}"  class="editbtn">Edit</a>
+	<h3>Registered Information </h3>
+	<table>
+	    <tr>
+		<td>Stablishment Name </td>
+		<td> {{ stab }} </td>
+	    </tr>
+	    <tr>
+		<td>Admininstrator Name </td>
+		<td> {{ userN }}</td>
+	    </tr>
+	    <tr>
+		<td>Password </td>
+		<td> {{ pwd }} </td>
+	    </tr>
+	    <tr>
+		<td>Registered Device </td>
+		<td> {{ num }} </td>
+	    </tr>
+	</table>
+	<i>Please make sure all inputs are correct.</i><br>
+    </div>
+{% endblock %}
+
+<script language="javascript">
+setInterval(function(){
+   window.location.reload(1);
+}, 10000);
+</script>

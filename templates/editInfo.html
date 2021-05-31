@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style type="text/css">
+    #editSub{
+    width: 60%;
+    margin: 5px 20%;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #ff9800;
+    font-size: 18px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    cursor:pointer;
+    box-shadow: 1px 1px 2px #333333;
+}
+#editSub:hover{
+    background: #fabb46;
+    color: #000;
+}
+.inputInfo{
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+</style>
+<div id="parag">
+	<p>
+		You are going to update the current information that is registered in the Recycle Pi Bin (RPB).
+	</p>
+	<p>
+		The following information contains to where the RPB located (Stablishment Name), who is the person managing the RPB (Administrator Name), the password of the Administrator (Password) and to whom the notifications SMS would be send (Phone No.).
+	</p>
+	<p>
+		Edit contents on the right side of the table, kindly double check the information your going to inputs and make sure to submit the data.
+	</p>
+</div><br>
+
+<div id="parag" class="edit_box">
+<form action="" method="post" class="btns_class">
+	<h3 style="text-align:center">Registered Information </h3>
+	<table>
+	    <tr>
+		<td>Stablishment Name </td>
+		<td> <input type="text" name="stablish" class="inputInfo" placeholder={{ stab }} required></td>
+	    </tr>
+	    <tr>
+		<td>Admininstrator Name </td>
+		<td><input type="text" name="name" class="inputInfo" placeholder={{ userN }}  required></td>
+	    </tr>
+	    <tr>
+		<td>Password </td>
+		<td><input type="text" name="pass" class="inputInfo" placeholder={{ pwd }} required> </td>
+	    </tr>
+	    <tr>
+		<td>Registered Device. </td>
+		<td><input type="text" name="number" class="inputInfo" placeholder={{ num }} required></td>
+	    </tr>
+	</table>
+		<h5 style="text-align:center"><i id="note" >Please make sure all inputs are correct.</i></h5><br>
+	    <input type="submit" name="btnInfo" value="SUBMIT" id="editSub" />  
+	</form>
+	</div>
+ </div>
+{% endblock %}

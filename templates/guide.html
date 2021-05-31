@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="guide_contents">
+		<h2>Guide How to Use: </h2>		
+		<div id="parag">
+			<h3>How to Connect on RPB:</h3>
+			<ol>Follow the instructions below:
+				<li>
+					<p>Make sure your device and the Raspberry Pi are connected on the same network.</p>
+				</li>
+				<li>
+					<p>Find the Raspberry Pi IP address on your network.</p>
+				</li>
+				<li>
+					<p>Input Raspberry Pi IP address on your browser url address bar.</p>
+				</li>
+				<li>
+					<p>Make sure the IP address is correct and the port must be 5000.(<i>Example input: 172.0.0.0:5000</i>)</p>
+				</li>
+				<li>
+					<p>If all inputs are correct you will be redirect to home windows of RPB application.</p>
+				</li>
+				<li>
+					<p>When you encounter some problem try to reboot the Raspberry Pi.</p>
+				</li>
+			</ol>
+
+		</div><br/>
+		<div id="parag">
+		<h3>Inside the Application</h3>
+			<ul>The work arround guide on how to use the application.
+				<li>
+					<p>On Menu navigation you can access the Home, Login/Logout, About, Contact, Settings on the upper part, and the credits developer of the project list on lower part. You can click the names to view there social media.</p>
+				</li>
+				<li>
+					<p>In the home tab eplained what the application is for.</p>
+				</li>
+				<li>
+					<p>Login page and logout page, if you want login as Administrator to edit the settings information and logout to exit as Administrator.</p>
+				</li>
+				<li>
+					<p>About tab emphasize the information about the application.</p>
+				</li>
+				<li>
+					<p>Contact tab list the contact inforation of the developers.</p>
+				</li>
+				<li>
+					<p>Settings tab can only access if you are login as Administrator. You can edit the Stablishment name, Administrator registered name, and Phone number of the recipient for SMS message.
+						<ul>
+							<li>To edit the settings make sure the Recycle Pi Bin Status is not running.</li>
+							<li>Double check the recipient number inputs, the number registered is where the message of warning if RPB trash can is already full will be send.</li>
+							<li>Stablishments name is where the RPB located and Administrator name is the Administrator that will monitor the application</li>
+							<li>Edit password or forgot password can be found on settings if you want to change the password registered.</li>
+							<li>Make sure to logout if you are done editing the information.</li>
+						</ul>
+					</p>
+				</li>
+				<li>
+					<p>On the bottom part of the screen locate the Home, Statistics, Guide, Settings and About tabs.</p>
+					<ul>
+						<li>Home same function of the Home tab mention above.</li>
+						<li>Statistics tab you can see the status of RPB if trash can is already full, if it is running or not, History Information on when last emptied the trash can and the last warning message sent when the trash can is full and the summary of information registered to the RPB application.</li>
+						<li>
+							Guide tab you can read the guide on how to use RPB and detailed of the application.
+						</li>
+						<li>Settings tab is also same content of the settings Tab mention above.</li>
+						<li>About tab same content of above mention.</li>
+					</ul>
+				</li>
+			</ul>
+		</div><br>		
+		<div id="parag">
+			<h3>When Reboot or Shutdown the RPB</h3>
+			<ol>To shutdown or reboot the RPB for trobleshooting please go to Settings and you will see the Reboot and Shutdown buttons their.
+				<li>
+					<p>If you want to reboot the RPB, click Reboot button, the RPB now will shutdown and wait for about 3-5 minutes to turn on itself again.</p>
+					<P>Refresh the webpage of your browser to see if its on again. If the page loaded perfectly the RPB is ready to use again. (You may need to login again for settings to update).</P>
+				</li>
+				<li>
+					<p>When you shutdown the RPB on Settings tab button, you need to manually turn in On again.</p>
+					<p>To Turn On the RPB manually you need to unplug and replug the RPB power supply.</p>
+				</li>
+			</ol>
+		</div><br/>
+	</div>
+{% endblock %}

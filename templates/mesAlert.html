@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+   <!-- Login Alert -->
+
+<style type="text/css">
+    #contAlert a{
+		width:25%;
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+        padding: 2%;
+        border-radius: 5px;
+		box-shadow:  1px 1px 2px #555555;
+    }
+    #contAlert a:hover{
+		background-color: #ff9933;
+	}
+	#contAlert{
+		width: 80%;
+		margin: auto;
+		padding:3%;
+		color: #333333;
+		align-content: center;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+
+
+</style>
+<p id="filler"></p>
+<div id="contAlert">
+	{% if logAlert %}
+		<p class="error"><strong>Alert:</strong> {{ logAlert }}<br><br>		
+		<a href="{{ url_for('index') }}" style="float: left; background-color: #cc3300;">Cancel</a>
+		<a href="{{ url_for('adminlogin') }}" style="float: right; background-color: #009900;">OK</a><br>
+	{% elif logoutAlert %}
+		<p class="error"><strong>Alert:</strong> {{ logoutAlert }}<br><br>		
+		<a href="{{ url_for('settings') }}" style="float: left; background-color: #cc3300;">Cancel</a>
+		<a href="{{ url_for('destroySession') }}" style="float: right; background-color: #009900;">OK</a><br>
+	{% elif editAlert %}
+		<p class="error"><strong>Alert:</strong> {{ editAlert }}<br><br>		
+		<a href="{{ url_for('settings') }}" style="float: left; background-color: #cc3300;">Cancel</a>
+		<a href="{{ url_for('editInfo') }}" style="float: right; background-color: #009900;">OK</a>
+		<br>
+	{% elif rebootAlert %}
+		<p class="error"><strong>Alert:</strong> {{ rebootAlert }}<p>If you reboot now, wait for about 3-5 minutes to RPB to power on itself, then refresh the browser.</p><br><br>		
+		<a href="{{ url_for('settings') }}" style="float: left; background-color: #cc3300;">Cancel</a>
+		<a href="{{ url_for('rebootBtn') }}" style="float: right; background-color: #009900;">OK</a><br>
+	{% elif shutdownAlert %}
+		<p class="error"><strong>Alert:</strong> {{ shutdownAlert }} <p>If you shutdown now, please manually power on the RPB through unpluging and replug the RPB power supply.</p><br><br>
+		<a href="{{ url_for('settings') }}" style="float: left; background-color: #cc3300;">Cancel</a>
+		<a href="{{ url_for('shutdownBtn') }}" style="float: right; background-color: #009900;">OK</a><br>
+	{% elif sureReset %}
+		<p class="error"><strong>Alert:</strong> {{ sureReset }} <p>Default Username will be <b>admin</b> and default password is <b>recycle</b>. After you reset the username and password please change them, we don't recommend to use the default username and password.</p><br><br>
+		<a href="{{ url_for('settings') }}" style="float: left; background-color: #cc3300;">Cancel</a>
+		<a href="{{ url_for('reset') }}" style="float: right; background-color: #009900;">OK</a><br>
+	{% elif editSure %}
+		<p class="error"><strong>Alert:</strong> {{ editSure }} <p>The Recycle Pi Bin will reboot...</p><p>Please wait for about 3-5 minutes and refresh the browser.</p><br><br>
+		<a href="{{ url_for('rebootBtn') }}" style="float: right; background-color: #009900;">OK</a>
+		<br>
+	{% elif resetOk%}
+		<p class="error"><strong>Alert:</strong> {{ resetOk }} <br><p>The Recycle Pi Bin will reboot...</p><p>Please wait for about 3-5 minutes and refresh the browser.</p><br>
+		<a href="{{ url_for('rebootBtn') }}" style="float: right; background-color: #009900;">OK</a>
+		<br>
+	{% endif %} <br>
+</div>
+
+<p id="filler"></p>
+<p style="height:50px"></p>
+{% endblock %}

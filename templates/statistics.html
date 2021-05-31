@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Statistics</h2>
+<div class="msg_status">
+	<p style="text-indent: 10%">Trash Can Status: 
+		{% if stat=="not" %}
+		<span id = "status_notFull">Not Full</span>
+			{% else %}
+		<span id = "status_Full">FULL </span>
+			{% endif %}	
+	</p>
+</div><br/>
+<div id="parag">
+	<h3>History Information </h3>
+	<table>
+		<tr>
+			<td>Last Message sent</td>
+			<td>{{ sent }}</td>
+		</tr>
+		<tr>
+			<td>Last Trash Can Full</td>
+			<td>{{ sent }}</td>
+		</tr>
+		<tr>
+			<td>Last Login</td>
+			<td>{{ lastLogin }}</td>
+		</tr>
+	</table>
+	<i id="note">Please contact the administrator if there is something wrong in the records.</i><br>
+</div><br/>
+<div id="parag">
+	<h3>Registered Information </h3>
+	<table>
+		<tr>
+			<td>Stablishment</td>
+			<td>{{ stab }}</td>
+		</tr>
+		<tr>
+			<td>Admininstrator</td>
+			<td>{{ userN }}</td>
+		</tr>
+		<tr>
+			<td>Device Registered</td>
+			<td>{{ num }}</td>
+		</tr>
+	</table>
+	<i id="note">Please login and go to the settings in order to edit something.</i><br>
+</div>
+
+{% endblock %}

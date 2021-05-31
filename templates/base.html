@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RPB {{ title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+	body{
+		font-family: "Lato", sans-serif;
+		padding: 0;
+		margin: 0 auto;
+		height: 100%;
+	}
+
+	/*** CODE CSS FOR BASEHTML ***/
+	.sidenav {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-image: linear-gradient(#ff9933, #f0e635, #555, #555);
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+		border: none;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}		
+	.sidenav a {
+		padding: 4px 4px 4px 16px;
+		text-decoration: none;
+		color: #fafafa;
+		display: block;
+		transition: 0.3s;
+	}
+	.sidenav a:hover {
+		color: #ff9933;
+	}
+	.sidenav ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	.sidenav ul li {
+		font-size: 15px;
+		font-family: inherit;
+		padding: 5px 0px 5px 0px;
+		cursor: pointer;
+		transition: .2s;
+		-webkit-transition: .2s;
+		-moz-transition: .2s;
+	}
+	.sidenav h1 {
+		margin: 0;
+		padding: 0;
+		font-weight: bold;
+		font-family: inherit;
+		font-size: 15px;
+		line-height: 16px;
+		padding: 20px 0px 5px 0px;
+		color: #ff9933;
+		font-weight: normal;
+		text-transform: uppercase;
+		letter-spacing: 0.250em;
+	}
+	.sidenav .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+	}
+	@media screen and (max-height: 450px) {
+		.sidenav {padding-top: 15px;}
+		.sidenav a {font-size: 18px;}
+	}
+	/* HR Designs */	
+	hr.style1{
+		border: solid 1px #999;
+		border-top: 1px solid #222;			 
+	}
+	hr.style2{
+		width: 90%;
+		margin-top: -5px;
+		margin-left: 0px;
+		border-top: 1px solid #333;
+		border-bottom: 1px solid #666;
+	}
+	/*** END CODE CSS FOR BASEHTML ***/
+
+	/*######## Footer Bottom CSS #######*/
+	.container{
+		width: 100%;
+		line-height: 45px;
+		background: #fff;
+		box-shadow: 0px -3px 8px -3px rgba(0,0,0,0.44);      
+		position: -webkit-sticky; /* Safari */
+		position: sticky;
+		bottom: 0;
+	}
+	.container .menu{
+		display: flex;
+		position: relative;
+	}
+	.container .menu li{
+		list-style: none;
+		flex: 1;
+		font-size: 30px;
+		cursor: pointer;
+		user-select: none;
+	}
+	.container .menu li a:visited{
+		color: #1d1f20;
+		background-color: #ff9933;
+		padding: 10%;
+	}
+	.menu img{
+		width: 20px;
+		padding-left: 28%;
+	}
+	/* Style the active class, and buttons on mouse-over */
+		.active, .btn:hover {
+		  background-color: #ff9933;
+		}
+	/*######## End Footer Bottom CSS #######*/
+
+	/* Body Elements Animation In*/
+	#elements {
+		position: relative;
+		right: -100%;
+		width: 100%;
+		height: 100%;
+		-webkit-animation: slide 0.5s forwards;
+		animation: slide 0.5s forwards;
+	}
+
+	@-webkit-keyframes slide {
+		100% { right: 0; }
+	}
+
+	@keyframes slide {
+		100% { right: 0; }
+	}
+	/*** END CODE CSS FOR BASEHTML ***/
+
+	/* Common Body CSS */
+	#ras{
+		color:#2b8001;
+	}
+	#pb{
+		color:#C51A4A;
+	}
+	#parag{
+		width: 90%;
+		margin: auto;
+		padding:3%;
+		color: #333333;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	p{
+		text-indent: 10%;
+	}
+	.guide_contents p{
+		text-indent: 0;
+	}	
+	h2{
+		color: #ff9933;
+		text-align: center;
+		text-shadow: 1px 1px 2px #000000;
+	}
+	h3{
+		color:#ff9933;
+	}
+	table, td, th{
+		border: 1px solid #555;
+	}
+	table{
+		width:100%; 
+		text-align:center;
+		border-collapse: collapse;
+	}
+	#note{
+		font-size:14px;
+	}
+	#filler{
+		height: 70px;
+	}
+	/* End Common Body CSS */
+
+	/*** message status ***/
+	.msg_status{
+		width: 65%;
+		font-weight: bold;
+		margin: auto;
+		padding: 2%;
+		background: #ffffff;
+		border-radius: 5px;
+		box-shadow:  1px 1px 2px #555555;
+	}
+	#status_notFull{
+		color: #009900;
+		width: 50%;
+		margin: auto;	
+	}
+	#status_Full{
+		color: #cc0000;
+		width: 50%;
+		margin: auto;	
+	}
+	/*** End message status ***/
+	
+</style>
+
+<link rel="shortcut icon" type="image/x-icon" href="{{url_for('static', filename='rpb.png')}}">
+</head>
+	<body>
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<div style="font-size: 24px">
+					<img src="{{url_for('static', filename='rpb.png')}}" align="top" width="40" style=""/>
+					<span style="color:#2b8001;">Recycle </span>
+					<span style="color:#C51A4A;">Pi Bin </span>					
+				</div><br>
+				<div style="background-color: #555"><br/>
+					<ul>
+						<li><a href="{{ url_for('index') }}">Home</a></li><hr class="style2">	
+						<li>{% if logOn=='logout' %}<a href="{{ url_for('adminlogout') }}">Logout {% else %}<a href="{{ url_for('adminlogin') }}">Login{%endif %}</a></li><hr class="style2">
+						<li><a href="{{ url_for('about') }}">About</a></li><hr class="style2">
+						<li><a href="{{ url_for('contact') }}">Contact</a></li><hr class="style2">  
+						<li><a href="{{ url_for('settings') }}">Settings</a></li><hr class="style2">
+					</ul><p/><br/>
+					<h1>Credits and Thanks</h1><hr class="style1">
+					<ul>
+					  <li><a href="https://m.facebook.com/drix.cha" target="_blank">Edrex H. Cha</li></a>
+					  <li><a href="https://m.facebook.com/hnspdg" target="_blank">Hans Jr. P. de Guzman</li></a>
+					  <li><a href="https://m.facebook.com/ernan.miclat" target="_blank">Ernan H. Miclat</li></a>
+					  <li><a href="https://m.facebook.com/leyynagarcia" target="_blank">Lainalie G. Aliwalas</li></a>
+					  <li><a href="https://m.facebook.com/josephine.tabirao.73" target="_blank">Josephine O. Tabirao<br></li></a>
+					</ul>
+				</div>
+		</div>
+		<div style="position:relative; padding: 5px; font-size:25px; background-image: linear-gradient(#ff9933, #fabb46);">
+			<span style="cursor:pointer; overflow:hidden;" onclick="openNav()">&#9776; Menu </span>
+			<span style="position:absolute; right: 0;">
+		</div><br/>
+		<!-- JS For Menu Navigation-->
+		<script>
+			function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+			}
+
+			function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			}
+		</script>
+
+<!-- Body Contents -->
+		<div id="elements">
+		{% block content %}
+		
+		{% endblock %}
+		</div><br>	
+
+<!-- Start of footer Bottom Icons-->	
+		<div class="container">
+			<div class="menu" id="myDIV">
+				<li class="{% if active=='home' %}active{%endif %}"><a href="{{ url_for('index') }}"><img src="{{url_for('static', filename='home.png')}}"></span></a></li>
+				<li class="{% if active=='statistics' %}active{%endif %}"><a href="{{ url_for('statistics') }}"><img src="{{url_for('static', filename='statistics.png')}}"></span></a></li>
+				<li class="{% if active=='guide' %}active{%endif %}"><a href="{{ url_for('guide') }}"><img src="{{url_for('static', filename='guide.png')}}"></span></a></li>
+				<li class="{% if active=='settings' %}active{%endif %}"><a href="{{ url_for('settings') }}"><img src="{{url_for('static', filename='settings.png')}}"></span></a></li>
+				<li class="{% if active=='about' %}active{%endif %}"><a href="{{ url_for('about') }}"><img src="{{url_for('static', filename='about.png')}}"></span></a></li>
+				<div class="line">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
